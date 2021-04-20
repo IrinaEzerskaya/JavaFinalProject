@@ -97,7 +97,7 @@ public class AuthorizedUITest extends AuthCredentials {
     @Given("Список книг доступен к просмотру для авторизованного пользователя по UI")
     public void doesAuthorizedUserCanSeeProfileList() {
         open(UIBASE_URL);
-        sleep(500);
+        sleep(1000);
         ElementsCollection booksNamesList = $$(byXpath("//div[contains(@class, 'action-buttons')]/span/a"));
         // На главной странице должно быть несколько ссылок на книги
         Assertions.assertTrue(booksNamesList.size() > 0);
@@ -128,7 +128,7 @@ public class AuthorizedUITest extends AuthCredentials {
                 sleep(1000);
                 this.webDriver.switchTo().alert().accept();
                 System.out.println("Книга добавлена!");
-                sleep(500);
+                sleep(1000);
             } else {
                 System.out.println("Не найдена кнопка добавления!");
             }
@@ -150,9 +150,9 @@ public class AuthorizedUITest extends AuthCredentials {
         if (btnDeleteList.size() > 0) {
             SelenideElement btnDelete = btnDeleteList.first();
             btnDelete.click();
-            sleep(500);
+            sleep(1000);
             $(By.xpath("//button[contains(@id,'closeSmallModal-ok')]")).click();
-            sleep(500);
+            sleep(1000);
             this.webDriver.switchTo().alert().accept();
 
         }
