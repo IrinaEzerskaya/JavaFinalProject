@@ -139,6 +139,7 @@ public class AuthorizedUITest extends AuthCredentials {
     @Then("Книга добавлена по UI")
     public void doesBooksHasBeenAdded() {
         open(BASE_URL + "/profile");
+        sleep(1000);
         ElementsCollection booksList = $$(byXpath("//div[contains(@class, 'rt-tr-group')]"));
         Assertions.assertTrue(booksList.size() > 0);
     }
