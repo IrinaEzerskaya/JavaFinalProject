@@ -83,8 +83,6 @@ public class AuthorizedUITest extends AuthCredentials {
             open(BASE_URL + "/profile");
 
             // Ищем кнопку Logout
-            // xpath увы не работает - замусорен HTML код
-            //WebElement logoutBtn = this.webDriver.findElement(By.xpath("//button[@id='submit']"));
             WebElement logoutBtn = this.webDriver.findElement(By.id("submit"));
             Assertions.assertEquals(logoutBtn.isDisplayed(), true);
 
