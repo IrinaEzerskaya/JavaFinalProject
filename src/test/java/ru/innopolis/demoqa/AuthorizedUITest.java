@@ -160,8 +160,8 @@ public class AuthorizedUITest extends AuthCredentials {
     @Then("Книга удалена по UI")
     public void doesBooksHasBeenDeleted() {
         open(BASE_URL + "/profile");
-        ElementsCollection booksList = $$(byXpath("//div[contains(@class, 'rt-tr-group')]"));
-        Assertions.assertTrue(booksList.size() == 0);
+        ElementsCollection booksNamesList = $$(byXpath("//div[contains(@class, 'action-buttons')]/span/a"));
+        Assertions.assertTrue(booksNamesList.size() == 0);
     }
 
 }
