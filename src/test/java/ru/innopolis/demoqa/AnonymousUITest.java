@@ -2,6 +2,7 @@ package ru.innopolis.demoqa;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -39,7 +40,7 @@ public class AnonymousUITest extends AuthCredentials {
 
     @Before
     public void setUp() {
-        //Configuration.driverManagerEnabled = false;
+        Configuration.driverManagerEnabled = false;
         //Configuration.remote = SELENOID_ADDRESS;
         Configuration.browser = CustomWebDriverProvider.class.getName();
     }
@@ -49,7 +50,7 @@ public class AnonymousUITest extends AuthCredentials {
     @Description("Тест авторизации в системе с не валидными данными")
     @Given("UI пользователь не авторизован")
     public void IncorrectCredentialsUser() {
-        open(UIBASE_URL);
+        Selenide.open(UIBASE_URL);
         this.webDriver = getWebDriver();
         this.webDriver.manage().window().maximize();
         Assertions.assertEquals($("#login").text(), "Login");

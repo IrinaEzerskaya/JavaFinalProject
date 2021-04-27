@@ -1,9 +1,6 @@
 package ru.innopolis.demoqa;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverProvider;
+import com.codeborne.selenide.*;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -42,14 +39,14 @@ public class AuthorizedUITest extends AuthCredentials {
 
     @Before
     public void setUp() {
-        //Configuration.driverManagerEnabled = false;
+        Configuration.driverManagerEnabled = false;
         //Configuration.remote = SELENOID_ADDRESS;
         Configuration.browser = CustomWebDriverProvider.class.getName();
     }
 
     @Given("UI пользователь авторизовался")
     public void canUserAuthorize() {
-        open(UIAUTH_URL);
+        Selenide.open(UIAUTH_URL);
         this.webDriver = getWebDriver();
         this.webDriver.manage().window().maximize();
         WebElement uName = this.webDriver.findElement(By.xpath("//*[@id='userName']"));
