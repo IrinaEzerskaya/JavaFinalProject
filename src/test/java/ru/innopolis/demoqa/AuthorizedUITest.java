@@ -39,9 +39,9 @@ public class AuthorizedUITest extends AuthCredentials {
 
     @Before
     public void setUp() {
-        Configuration.driverManagerEnabled = false;
+        //Configuration.driverManagerEnabled = false;
         //Configuration.remote = SELENOID_ADDRESS;
-        Configuration.browser = CustomWebDriverProvider.class.getName();
+        //Configuration.browser = CustomWebDriverProvider.class.getName();
     }
 
     @Given("UI пользователь авторизовался")
