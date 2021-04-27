@@ -25,17 +25,6 @@
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-java-commons</artifactId>
-            <version>2.13.9</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.qameta.allure</groupId>
-                    <artifactId>allure-java-commons</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
             <version>2.13.8</version>
         </dependency>
@@ -53,11 +42,6 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>2.13.8</version>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber-jvm</artifactId>
-            <version>2.13.9</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
