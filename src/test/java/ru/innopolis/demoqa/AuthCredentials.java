@@ -2,7 +2,16 @@ package ru.innopolis.demoqa;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverProvider;
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -19,5 +28,24 @@ public class AuthCredentials {
     protected static final String USERNAME = "QAZwsx";
     protected static final String PASSWORD = "Qq123123!";
     protected static final String BASE_URL = "https://demoqa.com";
+
+    // Для тестирования UI на Chrome v.88
+    public static class CustomWebDriverProvider implements WebDriverProvider {
+        @Override
+        public WebDriver createDriver(DesiredCapabilities capabilities) {
+            capabilities.setCapability("browserName", "chrome");
+            capabilities.setCapability("browserVersion", "88.0");
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+            try {
+                System.out.println(new URL(SELENOID_ADDRESS));
+                return new RemoteWebDriver(new URL(SELENOID_ADDRESS), capabilities);
+            } catch (final MalformedURLException e) {
+                throw new RuntimeException("Unable to create driver", e);
+            }
+        }
+    }
 
 }

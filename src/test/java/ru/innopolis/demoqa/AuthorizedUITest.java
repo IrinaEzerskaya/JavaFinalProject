@@ -40,26 +40,11 @@ public class AuthorizedUITest extends AuthCredentials {
     WebDriverWait wait;
     JavascriptExecutor js;
 
-    // Для тестирования UI на Firefox
-    public static class CustomProvider implements WebDriverProvider {
-        @Override
-        public WebDriver createDriver(DesiredCapabilities capabilities) {
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setAcceptInsecureCerts(true);
-            firefoxOptions.merge(capabilities);
-            try {
-                return new RemoteWebDriver(new URL(SELENOID_ADDRESS), firefoxOptions);
-            } catch (final MalformedURLException e) {
-                throw new RuntimeException("Unable to create driver", e);
-            }
-        }
-    }
-
     @Before
     public void setUp() {
-        Configuration.driverManagerEnabled = false;
-        Configuration.remote = SELENOID_ADDRESS;
-        //#Configuration.browser = CustomProvider.class.getName();
+        //Configuration.driverManagerEnabled = false;
+        //Configuration.remote = SELENOID_ADDRESS;
+        Configuration.browser = CustomWebDriverProvider.class.getName();
     }
 
     @Given("UI пользователь авторизовался")
