@@ -8,12 +8,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 import java.util.Map;
-
-import static com.codeborne.selenide.Selenide.sleep;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class AuthCredentials {
 
@@ -40,7 +36,7 @@ public class AuthCredentials {
                     "enableVideo", true
             ));
             try {
-                System.out.println(new URL(SELENOID_ADDRESS));
+                System.out.println("Connect to remote " + SELENOID_ADDRESS);
                 return new RemoteWebDriver(new URL(SELENOID_ADDRESS), capabilities);
             } catch (final MalformedURLException e) {
                 throw new RuntimeException("Unable to create driver", e);
