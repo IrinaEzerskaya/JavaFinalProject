@@ -25,27 +25,4 @@ public class AuthCredentials {
     protected static final String PASSWORD = "Qq123123!";
     protected static final String BASE_URL = "https://demoqa.com";
 
-    // Для тестирования UI на Chrome v.88
-    public static class CustomWebDriverProvider implements WebDriverProvider {
-        @Override
-        public WebDriver createDriver(DesiredCapabilities capabilities) {
-            capabilities.setCapability("browserName", "chrome");
-            capabilities.setCapability("browserVersion", "88.0");
-            // java: cannot find symbol
-            //  symbol:   method <java.lang.String,java.lang.Object>of(java.lang.String,boolean,java.lang.String,boolean)
-            /*capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                    "enableVNC", true,
-                    "enableVideo", true
-            ));*/
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
-            try {
-                System.out.println("Connect to remote " + SELENOID_ADDRESS);
-                return new RemoteWebDriver(new URL(SELENOID_ADDRESS), capabilities);
-            } catch (final MalformedURLException e) {
-                throw new RuntimeException("Unable to create driver", e);
-            }
-        }
-    }
-
 }
