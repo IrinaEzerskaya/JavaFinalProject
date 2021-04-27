@@ -31,10 +31,14 @@ public class AuthCredentials {
         public WebDriver createDriver(DesiredCapabilities capabilities) {
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("browserVersion", "88.0");
-            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+            // java: cannot find symbol
+            //  symbol:   method <java.lang.String,java.lang.Object>of(java.lang.String,boolean,java.lang.String,boolean)
+            /*capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                     "enableVNC", true,
                     "enableVideo", true
-            ));
+            ));*/
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
             try {
                 System.out.println("Connect to remote " + SELENOID_ADDRESS);
                 return new RemoteWebDriver(new URL(SELENOID_ADDRESS), capabilities);
