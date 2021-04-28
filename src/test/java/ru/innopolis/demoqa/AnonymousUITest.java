@@ -38,11 +38,11 @@ public class AnonymousUITest extends AuthCredentials {
 
     private WebDriver webDriver;
 
-    @Before
+    /*@Before
     public void setUp() {
         Configuration.driverManagerEnabled = false;
         Configuration.remote = SELENOID_ADDRESS;
-    }
+    }*/
 
     @Test
     @Owner("IrinaEzerskaya")

@@ -37,11 +37,11 @@ public class AuthorizedUITest extends AuthCredentials {
     WebDriverWait wait;
     JavascriptExecutor js;
 
-    @Before
+    /*@Before
     public void setUp() {
         Configuration.driverManagerEnabled = false;
         Configuration.remote = SELENOID_ADDRESS;
-    }
+    }*/
 
     @Given("UI пользователь авторизовался")
     public void canUserAuthorize() {
